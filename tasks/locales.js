@@ -209,7 +209,7 @@ module.exports = function (grunt) {
             messages[key].files.sort();
 
             /*
-             * to support generate Json file with format
+             * to support generate Json file with flat format as
              * { "tranlsation_key": "translation_value" }
              */
             if (this.options.localeJsonFlatFormat){
