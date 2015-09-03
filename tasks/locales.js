@@ -31,6 +31,7 @@ module.exports = function (grunt) {
             localeRegExp: /\w+(?=\/[^\/]+$)/,
             localePlaceholder: '{locale}',
             localeName: 'i18n',
+            localeJsonFlatFormat: false,
             // Set to true to wrap static translation strings with a function:
             wrapStaticTranslations: false,
             // Purge obsolete locale messages by default:
@@ -206,6 +207,15 @@ module.exports = function (grunt) {
                 messages[key] = obj;
             }
             messages[key].files.sort();
+
+            /*
+             * to support generate Json file with format
+             * { "tranlsation_key": "translation_value" }
+             */
+            if (this.options.localeJsonFlatFormat){
+                messages[key] = messages[key].value;
+            }
+
             return messages;
         },
 
